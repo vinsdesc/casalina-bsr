@@ -1,0 +1,344 @@
+@use 'css/fonts';
+@use 'css/abstract' as *;
+@use 'css/reset';
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+$primary: rgba(163, 211, 188, 1);
+
+@mixin shadow {
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+  border: 2px solid rgba(0, 0, 0, 1);
+  border-radius: 10px;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  // border: 3px solid black;
+  color: black;
+}
+
+main,
+footer,
+header {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 10px 80px;
+  @include respond-to('xs') {
+    padding: 0 16px;
+    font-size: 15px;
+  }
+}
+
+header {
+  display: flex;
+  align-items: center;
+  height: 120px;
+  border-bottom: 2px solid black;
+  font-family: tt-norm-bold;
+  font-size: 30px;
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  .logos {
+    ul {
+      display: flex;
+      margin-left: -60px;
+    }
+    li:first-child {
+      margin-right: 32px;
+    }
+  }
+  .logo--img {
+    height: 100px;
+  }
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-left: 250px;
+  }
+  @include respond-to('xs') {
+    height: 48px;
+    justify-content: space-between;
+    img.logo--img {
+      height: 40px;
+    }
+    nav {
+      display: none;
+    }
+    .logos {
+      ul {
+        margin-left: 0px;
+      }
+      li:first-child {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+.hero {
+  margin: 40px 0;
+  .hero--picture {
+    width: 100%;
+  }
+  figure {
+    position: relative;
+    margin: 0;
+  }
+  figcaption {
+    position: absolute;
+    width: 100%;
+    height: 88px;
+    left: 0px;
+    top: calc(100% - 94px);
+    background: rgba(16, 16, 16, 0.2);
+    border-radius: 10px;
+    @include respond-to('xs') {
+      top: calc(100% - 66px);
+      height: 62px;
+      background: none;
+    }
+    h1 {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 50px;
+      line-height: 59px;
+      font-family: tt-norm-medium;
+      color: #ffffff;
+      padding-left: 20px;
+      margin-top: 16px;
+    }
+    button {
+      display: none;
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      font-size: 30px;
+      @include respond-to('xs') {
+        display: block;
+        font-size: 16px;
+        right: 16px;
+        bottom: 8px;
+      }
+    }
+  }
+  @include respond-to('xs') {
+    margin: 0;
+    padding-top: 32px;
+    h1 {
+      display: none;
+    }
+  }
+}
+
+.description {
+  display: grid;
+  padding: 0 40px;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  font-size: 16px;
+  line-height: 165%;
+  font-family: kohinoor-medium;
+  margin-bottom: 40px;
+  font-size: 18px;
+  @include respond-to('xs') {
+    gap: 10px;
+    grid-template-columns: none;
+    font-size: 15px;
+    margin-top: 24px;
+  }
+}
+
+.conclusion {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 25px;
+  img {
+    max-width: 500px;
+  }
+  padding-bottom: 80px;
+  @include respond-to('xs') {
+    img {
+      max-width: 300px;
+    }
+    font-size: 20px;
+  }
+}
+
+strong {
+  font-weight: bold;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  font-family: tt-norm-bold;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 30px;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.btn--primary {
+  background-color: $primary;
+  padding: 10px 20px;
+  @include shadow();
+}
+
+.btn--menu {
+  display: none;
+  background-image: url(./assets/images/icons/hamburger.svg);
+  height: 40px;
+  width: 40px;
+  background-color: #ffffff;
+  @include respond-to('xs') {
+    display: block;
+  }
+  // border: 2px solid black;
+}
+
+footer {
+  // background-color: rgb(146, 153, 155);
+  // color: #ffffff;
+  border-top: 3px solid black;
+  display: flex;
+  justify-content: space-between;
+  h3 {
+    text-align: right;
+  }
+  img {
+    border-radius: 20%;
+    padding: 0 10px;
+  }
+  .social-media {
+    grid-column-start: 3;
+    filter: grayscale(100%);
+    img {
+      width: 25px;
+    }
+  }
+  ul {
+    display: flex;
+  }
+  @include respond-to('xs') {
+    padding-top: 24px;
+    img {
+      border-radius: 20%;
+      padding: 0 8px;
+      width: 64px;
+    }
+    .social-media img {
+      padding: 8px;
+      width: 40px;
+      cursor: pointer;
+    }
+  }
+}
+
+.round {
+  border: 2px solid rgb(181, 181, 181);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(
+    207.69deg,
+    rgba(163, 211, 188, 0.4) 0.69%,
+    rgba(131, 209, 242, 0.4) 99.76%
+  );
+  background-blend-mode: multiply;
+  cursor: pointer;
+}
+
+.color--container {
+  position: absolute;
+  max-width: 564px;
+  height: 106px;
+  background: white;
+  border: 2px solid rgba(217, 217, 217, 1);
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.color-1 {
+  background: linear-gradient(
+      309.58deg,
+      rgba(163, 211, 188, 0.4) 42.19%,
+      rgba(131, 209, 242, 0.4) 74.41%
+    ),
+    #ffffff;
+}
+
+.color-2 {
+  background: white;
+}
+
+.color-3 {
+  background: linear-gradient(
+      340.86deg,
+      rgba(245, 213, 20, 0.245) -13.41%,
+      rgba(163, 211, 188, 0.5) 44.07%
+    ),
+    #ffffff;
+}
+
+.color-4 {
+  background: linear-gradient(
+      0deg,
+      rgba(245, 213, 20, 0.19),
+      rgba(245, 213, 20, 0.19)
+    ),
+    #ffffff;
+}
+
+.color-5 {
+  background: linear-gradient(
+      0deg,
+      rgba(131, 209, 242, 0.4),
+      rgba(131, 209, 242, 0.4)
+    ),
+    #ffffff;
+}
+
+.color-6 {
+  background: linear-gradient(
+      180deg,
+      rgba(131, 209, 242, 0.4) 0%,
+      rgba(131, 209, 242, 0) 100%
+    ),
+    #ffffff;
+}
+
+.color-7 {
+  background: linear-gradient(
+      180deg,
+      rgba(131, 209, 242, 0.4) 0%,
+      rgba(50, 91, 111, 0) 100%
+    ),
+    #d9d9d9;
+}

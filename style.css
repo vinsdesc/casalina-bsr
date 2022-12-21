@@ -1,0 +1,437 @@
+@font-face {
+  font-family: kohinoor-bold;
+  src: url(./assets/fonts/KohinoorBangla-Bold.otf);
+}
+@font-face {
+  font-family: kohinoor-medium;
+  src: url(./assets/fonts/KohinoorBangla-Medium.otf);
+}
+@font-face {
+  font-family: kohinoor-semi-bold;
+  src: url(./assets/fonts/KohinoorBangla-Semibold.otf);
+}
+@font-face {
+  font-family: kohinoor-light;
+  src: url(./assets/fonts/KohinoorBangla-Light.otf);
+}
+@font-face {
+  font-family: kohinoor-light;
+  src: url(./assets/fonts/KohinoorBangla-Light.otf);
+}
+@font-face {
+  font-family: tt-norm-bold;
+  src: url(./assets/fonts/TTNorms-Bold.otf);
+}
+@font-face {
+  font-family: tt-norm-medium;
+  src: url(./assets/fonts/TTNorms-Medium.otf);
+}
+@font-face {
+  font-family: tt-norm-semi-bold;
+  src: url(./assets/fonts/TTNorms-Regular.otf);
+}
+/***
+    The new CSS reset - version 1.7.3 (last updated 7.8.2022)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input,
+textarea {
+  -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+  color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+ display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+ - fix for the content editable attribute will work properly.
+ - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable=false])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}
+
+ul {
+  list-style: none;
+}
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
+main,
+footer,
+header {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 10px 80px;
+}
+@media (max-width: 576px) {
+  main,
+  footer,
+  header {
+    padding: 0 16px;
+    font-size: 15px;
+  }
+}
+
+header {
+  display: flex;
+  align-items: center;
+  height: 120px;
+  border-bottom: 2px solid black;
+  font-family: tt-norm-bold;
+  font-size: 30px;
+}
+header a {
+  color: black;
+  text-decoration: none;
+}
+header .logos ul {
+  display: flex;
+  margin-left: -60px;
+}
+header .logos li:first-child {
+  margin-right: 32px;
+}
+header .logo--img {
+  height: 100px;
+}
+header .menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-left: 250px;
+}
+@media (max-width: 576px) {
+  header {
+    height: 48px;
+    justify-content: space-between;
+  }
+  header img.logo--img {
+    height: 40px;
+  }
+  header nav {
+    display: none;
+  }
+  header .logos ul {
+    margin-left: 0px;
+  }
+  header .logos li:first-child {
+    margin-right: 8px;
+  }
+}
+
+.hero {
+  margin: 40px 0;
+}
+.hero .hero--picture {
+  width: 100%;
+}
+.hero figure {
+  position: relative;
+  margin: 0;
+}
+.hero figcaption {
+  position: absolute;
+  width: 100%;
+  height: 88px;
+  left: 0px;
+  top: calc(100% - 94px);
+  background: rgba(16, 16, 16, 0.2);
+  border-radius: 10px;
+}
+@media (max-width: 576px) {
+  .hero figcaption {
+    top: calc(100% - 66px);
+    height: 62px;
+    background: none;
+  }
+}
+.hero figcaption h1 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 59px;
+  font-family: tt-norm-medium;
+  color: #ffffff;
+  padding-left: 20px;
+  margin-top: 16px;
+}
+.hero figcaption button {
+  display: none;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 30px;
+}
+@media (max-width: 576px) {
+  .hero figcaption button {
+    display: block;
+    font-size: 16px;
+    right: 16px;
+    bottom: 8px;
+  }
+}
+@media (max-width: 576px) {
+  .hero {
+    margin: 0;
+    padding-top: 32px;
+  }
+  .hero h1 {
+    display: none;
+  }
+}
+
+.description {
+  display: grid;
+  padding: 0 40px;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  font-size: 16px;
+  line-height: 165%;
+  font-family: kohinoor-medium;
+  margin-bottom: 40px;
+  font-size: 18px;
+}
+@media (max-width: 576px) {
+  .description {
+    gap: 10px;
+    grid-template-columns: none;
+    font-size: 15px;
+    margin-top: 24px;
+  }
+}
+
+.conclusion {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 25px;
+  padding-bottom: 80px;
+}
+.conclusion img {
+  max-width: 500px;
+}
+@media (max-width: 576px) {
+  .conclusion {
+    font-size: 20px;
+  }
+  .conclusion img {
+    max-width: 300px;
+  }
+}
+
+strong {
+  font-weight: bold;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  font-family: tt-norm-bold;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 30px;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn--primary {
+  background-color: rgb(163, 211, 188);
+  padding: 10px 20px;
+  box-shadow: 2px 2px 0px 0px rgb(0, 0, 0);
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 10px;
+}
+
+.btn--menu {
+  display: none;
+  background-image: url(./assets/images/icons/hamburger.svg);
+  height: 40px;
+  width: 40px;
+  background-color: #ffffff;
+}
+@media (max-width: 576px) {
+  .btn--menu {
+    display: block;
+  }
+}
+
+footer {
+  border-top: 3px solid black;
+  display: flex;
+  justify-content: space-between;
+}
+footer h3 {
+  text-align: right;
+}
+footer img {
+  border-radius: 20%;
+  padding: 0 10px;
+}
+footer .social-media {
+  grid-column-start: 3;
+  filter: grayscale(100%);
+}
+footer .social-media img {
+  width: 25px;
+}
+footer ul {
+  display: flex;
+}
+@media (max-width: 576px) {
+  footer {
+    padding-top: 24px;
+  }
+  footer img {
+    border-radius: 20%;
+    padding: 0 8px;
+    width: 64px;
+  }
+  footer .social-media img {
+    padding: 8px;
+    width: 40px;
+    cursor: pointer;
+  }
+}
+
+.round {
+  border: 2px solid rgb(181, 181, 181);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(207.69deg, rgba(163, 211, 188, 0.4) 0.69%, rgba(131, 209, 242, 0.4) 99.76%);
+  background-blend-mode: multiply;
+  cursor: pointer;
+}
+
+.color--container {
+  position: absolute;
+  max-width: 564px;
+  height: 106px;
+  background: white;
+  border: 2px solid rgb(217, 217, 217);
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.color-1 {
+  background: linear-gradient(309.58deg, rgba(163, 211, 188, 0.4) 42.19%, rgba(131, 209, 242, 0.4) 74.41%), #ffffff;
+}
+
+.color-2 {
+  background: white;
+}
+
+.color-3 {
+  background: linear-gradient(340.86deg, rgba(245, 213, 20, 0.245) -13.41%, rgba(163, 211, 188, 0.5) 44.07%), #ffffff;
+}
+
+.color-4 {
+  background: linear-gradient(0deg, rgba(245, 213, 20, 0.19), rgba(245, 213, 20, 0.19)), #ffffff;
+}
+
+.color-5 {
+  background: linear-gradient(0deg, rgba(131, 209, 242, 0.4), rgba(131, 209, 242, 0.4)), #ffffff;
+}
+
+.color-6 {
+  background: linear-gradient(180deg, rgba(131, 209, 242, 0.4) 0%, rgba(131, 209, 242, 0) 100%), #ffffff;
+}
+
+.color-7 {
+  background: linear-gradient(180deg, rgba(131, 209, 242, 0.4) 0%, rgba(50, 91, 111, 0) 100%), #d9d9d9;
+}
+
+/*# sourceMappingURL=style.css.map */
