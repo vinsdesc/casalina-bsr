@@ -124,61 +124,52 @@ ul {
 html {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
+}
+
+:root {
+  font-size: 15px;
 }
 
 body {
-  width: 100%;
-  margin: 0;
-  padding: 0;
+  margin: 0 auto;
+  max-width: 1280px;
   color: black;
 }
-
-main,
-footer,
-header {
-  margin: 0 auto;
-  max-width: 1440px;
-  padding: 10px 80px;
-}
 @media (max-width: 576px) {
-  main,
-  footer,
-  header {
+  body {
+    padding: 0px;
+  }
+}
+
+@media (max-width: 576px) {
+  header, main, footer {
     padding: 0 16px;
-    font-size: 15px;
   }
 }
 
 header {
-  display: flex;
-  align-items: center;
-  height: 120px;
   border-bottom: 2px solid black;
   font-family: tt-norm-bold;
-  font-size: 30px;
+  font-size: 22px;
 }
 header a {
   color: black;
   text-decoration: none;
 }
-header .logos ul {
-  display: flex;
-  margin-left: -60px;
-}
-header .logos li:first-child {
-  margin-right: 32px;
-}
-header .logo--img {
-  height: 100px;
-}
 header .menu {
   display: flex;
+  padding: 0 15px;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 100%;
-  margin-left: 250px;
+  gap: 10px;
+}
+header .menu li:first-child {
+  margin-right: -4rem;
+}
+header .menu li:nth-child(2) {
+  margin-right: 18rem;
 }
 @media (max-width: 576px) {
   header {
@@ -186,21 +177,25 @@ header .menu {
     justify-content: space-between;
   }
   header img.logo--img {
+    max-width: fit-content;
     height: 40px;
+    position: relative;
   }
-  header nav {
+  header li:not(.menu--logo) {
     display: none;
   }
-  header .logos ul {
-    margin-left: 0px;
+  header .menu {
+    position: relative;
+    left: -22px;
   }
-  header .logos li:first-child {
-    margin-right: 8px;
+  header .menu li:first-child {
+    margin-top: 5px;
+    margin-right: 0px;
   }
 }
 
 .hero {
-  margin: 40px 0;
+  padding: 40px 30px;
 }
 .hero .hero--picture {
   width: 100%;
@@ -273,7 +268,8 @@ header .menu {
 }
 @media (max-width: 576px) {
   .description {
-    gap: 10px;
+    padding: 0 0px;
+    gap: 20px;
     grid-template-columns: none;
     font-size: 15px;
     margin-top: 24px;
@@ -293,10 +289,11 @@ header .menu {
 }
 @media (max-width: 576px) {
   .conclusion {
+    padding-bottom: 40px;
     font-size: 20px;
   }
   .conclusion img {
-    max-width: 300px;
+    max-width: 150px;
   }
 }
 
@@ -320,25 +317,29 @@ strong {
   background-color: transparent;
   border: 1px solid transparent;
   padding: 0.375rem 0.75rem;
-  font-size: 30px;
+  font-size: 22px;
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.btn--primary {
-  background-color: rgb(163, 211, 188);
-  padding: 10px 20px;
   box-shadow: 2px 2px 0px 0px rgb(0, 0, 0);
   border: 2px solid rgb(0, 0, 0);
   border-radius: 10px;
 }
 
+.btn--primary {
+  background-color: rgb(163, 211, 188);
+  padding: 10px 20px;
+}
+
 .btn--menu {
   display: none;
   background-image: url(./assets/images/icons/hamburger.svg);
-  height: 40px;
-  width: 40px;
+  height: 36px;
+  width: 36px;
   background-color: #ffffff;
+  background-size: contain;
+  position: absolute;
+  top: 5px;
+  right: 8px;
 }
 @media (max-width: 576px) {
   .btn--menu {
@@ -432,6 +433,70 @@ footer ul {
 
 .color-7 {
   background: linear-gradient(180deg, rgba(131, 209, 242, 0.4) 0%, rgba(50, 91, 111, 0) 100%), #d9d9d9;
+}
+
+body::-webkit-scrollbar {
+  width: 16px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #77d4a6;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #77d4a6;
+}
+
+.products {
+  padding: 32px 0;
+}
+
+.product {
+  margin: 24px 0;
+  min-height: 450px;
+  background: white;
+  border: 1px solid #000000;
+  box-shadow: 4px 4px 0px #000000;
+  border-radius: 10px;
+}
+.product:first-child {
+  margin: 0;
+}
+.product .product--title {
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+  color: rgb(88, 92, 93);
+}
+.product .product--price {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+.product .product--footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.product .btn {
+  padding: 0.1em 0.4em;
+}
+
+.product > * {
+  padding: 0.5rem;
+}
+
+.cart::before {
+  content: url(./assets/images/icons/cart.svg);
+  position: relative;
+  top: 3px;
+}
+
+.bg--blue {
+  background: rgb(131, 209, 242);
+}
+
+.bg--yellow {
+  background: rgb(245, 213, 20);
 }
 
 /*# sourceMappingURL=style.css.map */

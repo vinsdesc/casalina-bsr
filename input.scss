@@ -5,10 +5,14 @@
 html {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
 }
 
 $primary: rgba(163, 211, 188, 1);
+$blue: rgba(131, 209, 242, 1);
+$yellow: rgba(245, 213, 20, 1);
+
+
+
 
 @mixin shadow {
   box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
@@ -16,79 +20,91 @@ $primary: rgba(163, 211, 188, 1);
   border-radius: 10px;
 }
 
-body {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  // border: 3px solid black;
-  color: black;
+@mixin big-shadow {
+  border: 1px solid #000000;
+  box-shadow: 4px 4px 0px #000000;
+  border-radius: 10px;
 }
 
-main,
-footer,
-header {
-  margin: 0 auto;
-  max-width: 1440px;
-  padding: 10px 80px;
+:root {
+  font-size: 15px;
+}
+
+body {
+  margin: 0 auto; 
+  max-width: 1280px;
+  color: black;
   @include respond-to('xs') {
-    padding: 0 16px;
-    font-size: 15px;
+    padding: 0px;
+  }
+  // @include respond-to('xl') {
+  //   padding: 10px 80px;
+  // }
+}
+
+
+
+header, main, footer {
+  @include respond-to('xs') {
+    padding:0 16px;
   }
 }
 
 header {
-  display: flex;
-  align-items: center;
-  height: 120px;
+  // height: 120px;
   border-bottom: 2px solid black;
   font-family: tt-norm-bold;
-  font-size: 30px;
+  font-size: 22px;
   a {
     color: black;
     text-decoration: none;
   }
-  .logos {
-    ul {
-      display: flex;
-      margin-left: -60px;
-    }
-    li:first-child {
-      margin-right: 32px;
-    }
-  }
   .logo--img {
-    height: 100px;
+    // height: 100px;
   }
   .menu {
     display: flex;
+    padding: 0 15px;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 100%;
-    margin-left: 250px;
+    gap:10px;
+    li:first-child {
+      margin-right: -4rem;
+    }
+    li:nth-child(2) {
+      margin-right: 18rem;
+    }
   }
+  // @include respond-to('xl') {
+  //   font-size: 30px;
+  // }
   @include respond-to('xs') {
     height: 48px;
     justify-content: space-between;
     img.logo--img {
+      max-width: fit-content;
       height: 40px;
+      position: relative;
     }
-    nav {
+    li:not(.menu--logo) {
       display: none;
     }
-    .logos {
-      ul {
-        margin-left: 0px;
-      }
-      li:first-child {
-        margin-right: 8px;
-      }
+    .menu {
+      position: relative;
+      left: -22px;
+    }
+    .menu li:first-child {
+      margin-top: 5px;
+      margin-right: 0px;
     }
   }
 }
 
+
 .hero {
-  margin: 40px 0;
+  padding: 40px 30px;
   .hero--picture {
     width: 100%;
   }
@@ -153,7 +169,8 @@ header {
   margin-bottom: 40px;
   font-size: 18px;
   @include respond-to('xs') {
-    gap: 10px;
+    padding: 0 0px;
+    gap:20px;
     grid-template-columns: none;
     font-size: 15px;
     margin-top: 24px;
@@ -171,8 +188,9 @@ header {
   }
   padding-bottom: 80px;
   @include respond-to('xs') {
+    padding-bottom: 40px;
     img {
-      max-width: 300px;
+      max-width: 150px;
     }
     font-size: 20px;
   }
@@ -198,23 +216,31 @@ strong {
   background-color: transparent;
   border: 1px solid transparent;
   padding: 0.375rem 0.75rem;
-  font-size: 30px;
+  font-size: 22px;
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  @include shadow();
+
+  // @include respond-to('xl') {
+  //   font-size: 30px;
+  // }
 }
 .btn--primary {
   background-color: $primary;
   padding: 10px 20px;
-  @include shadow();
 }
 
 .btn--menu {
   display: none;
   background-image: url(./assets/images/icons/hamburger.svg);
-  height: 40px;
-  width: 40px;
+  height: 36px;
+  width: 36px;
   background-color: #ffffff;
+  background-size: contain;
+  position: absolute;
+  top: 5px;
+  right: 8px;
   @include respond-to('xs') {
     display: block;
   }
@@ -341,4 +367,66 @@ footer {
       rgba(50, 91, 111, 0) 100%
     ),
     #d9d9d9;
+}
+
+body::-webkit-scrollbar {
+  width: 16px;
+}
+body::-webkit-scrollbar-track {
+  background-color: #77d4a6;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #77d4a6;
+}
+
+
+.products {
+  padding: 32px 0;
+}
+.product {
+  &:first-child {
+    margin: 0;
+  }
+  margin: 24px 0;
+  min-height: 450px;
+  background: white;
+  @include big-shadow();
+  .product--title {
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center;
+    color: rgb(88, 92, 93);
+  }
+  .product--price {
+    font-size: 1.2em;
+    font-weight: 700;
+  }
+  .product--footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .btn {
+    padding: .1em .4em;
+  }
+}
+
+.product > * {
+  padding: .5rem;
+}
+
+
+.cart::before {
+  content: url(./assets/images/icons/cart.svg);
+  // center vertically icon
+  position: relative;
+  top: 3px;
+}
+
+.bg--blue {
+  background: $blue;
+}
+
+.bg--yellow {
+  background: $yellow;
 }
