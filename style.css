@@ -181,7 +181,7 @@ header .menu li:nth-child(2) {
     height: 40px;
     position: relative;
   }
-  header li:not(.menu--logo) {
+  header li:not(.menu--logo):not(.menu--item--xs):not(.dropdown--item--xs) {
     display: none;
   }
   header .menu {
@@ -192,6 +192,72 @@ header .menu li:nth-child(2) {
     margin-top: 5px;
     margin-right: 0px;
   }
+}
+
+.menu--item--dropdown {
+  position: relative;
+}
+
+.menu--item--dropdown::after {
+  display: inline-block;
+  margin-left: 0.4em;
+  vertical-align: 0.1em;
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #000000;
+}
+
+.dropdown--menu {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  top: 35px;
+  border: 1px inset black;
+  width: 100%;
+  font-weight: normal;
+  border: 0.5px solid black;
+  border-radius: 5px;
+  background: white;
+}
+.dropdown--menu .dropdown--item {
+  cursor: pointer;
+  padding: 0.5em;
+}
+.dropdown--menu .dropdown--item:hover {
+  background: whitesmoke;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.menu--xs {
+  display: none;
+  width: calc(100% + 32px);
+  height: 100vh;
+  background: whitesmoke;
+  border: 1px solid steelblue;
+  margin-left: -16px;
+  position: relative;
+  top: -3px;
+  z-index: 100;
+}
+.menu--xs li {
+  padding: 0.3em 0.5em;
+  position: relative;
+}
+.menu--xs .menu--item--dropdown--xs::after {
+  content: url(./assets/images/icons/arrow.svg);
+  width: 10px;
+  height: 10px;
+  top: 10px;
+  left: calc(100% - 30px);
+  position: absolute;
+}
+.menu--xs .dropdown--menu--xs {
+  display: none;
+  padding-left: 1em;
 }
 
 .hero {
@@ -332,7 +398,6 @@ strong {
 
 .btn--menu {
   display: none;
-  background-image: url(./assets/images/icons/hamburger.svg);
   height: 36px;
   width: 36px;
   background-color: #ffffff;
@@ -345,6 +410,14 @@ strong {
   .btn--menu {
     display: block;
   }
+}
+
+.icon--hamburger {
+  background-image: url(./assets/images/icons/hamburger.svg);
+}
+
+.icon--close {
+  background-image: url(./assets/images/icons/close.svg);
 }
 
 footer {

@@ -36,6 +36,7 @@ body {
   color: black;
   @include respond-to('xs') {
     padding: 0px;
+
   }
   // @include respond-to('xl') {
   //   padding: 10px 80px;
@@ -88,7 +89,7 @@ header {
       height: 40px;
       position: relative;
     }
-    li:not(.menu--logo) {
+    li:not(.menu--logo):not(.menu--item--xs):not(.dropdown--item--xs) {
       display: none;
     }
     .menu {
@@ -102,6 +103,77 @@ header {
   }
 }
 
+.menu--item--dropdown {
+  position: relative;
+}
+.menu--item--dropdown::after {
+  display: inline-block;
+  margin-left: 0.4em;
+  vertical-align: 0.1em;
+  content: "";
+  width: 0; 
+  height: 0; 
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #000000;
+}
+
+.dropdown--menu {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  top: 35px;
+  border: 1px inset black;
+  width: 100%;
+  font-weight: normal;
+  // font-family: kohinoor-medium;
+  border: .5px solid black;
+  border-radius: 5px;
+  background: white;
+  // left: 40px;
+  .dropdown--item {
+    cursor: pointer;
+    padding: .5em;
+    &:hover {
+      background: whitesmoke;
+      width: 100%;
+      border-radius: 5px;
+    }
+  }
+}
+
+
+.menu--xs {
+  display: none;
+  width: calc(100% + 32px);
+  height: 100vh;
+  background: whitesmoke;
+  border: 1px solid steelblue;
+  margin-left: -16px; // bc of header padding
+  position: relative;
+  top: -3px;
+  z-index: 100;
+  li {
+    padding: .3em .5em;
+     position: relative;
+  // top: 1px;
+  // left: -16px;
+  // z-index: 100;
+  }
+  .menu--item--dropdown--xs::after {
+    content: url(./assets/images/icons/arrow.svg);
+    width: 10px;
+    height: 10px;
+    top: 10px;
+    left: calc(100% - 30px);
+    position: absolute;
+  }
+
+  .dropdown--menu--xs {
+    display: none;
+    padding-left: 1em;
+  }
+}
 
 .hero {
   padding: 40px 30px;
@@ -233,7 +305,6 @@ strong {
 
 .btn--menu {
   display: none;
-  background-image: url(./assets/images/icons/hamburger.svg);
   height: 36px;
   width: 36px;
   background-color: #ffffff;
@@ -245,6 +316,14 @@ strong {
     display: block;
   }
   // border: 2px solid black;
+}
+
+.icon--hamburger {
+  background-image: url(./assets/images/icons/hamburger.svg);
+}
+
+.icon--close {
+  background-image: url(./assets/images/icons/close.svg);
 }
 
 footer {
