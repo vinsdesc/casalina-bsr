@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../style.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul class="menu">
+        <li class="menu--item menu--logo"> <a href="/index.html"><img src="../assets/images/casalina_logo.svg"
+              class="logo--img" alt="casalina_logo" /></a>
+        </li>
+        <li class="menu--item menu--logo">
+          <a href="/index.html"> <img src="../assets/images/bsr_logo.svg" class="logo--img" alt="bsr_logo" /></a>
+        </li>
+        <li class="menu--item"><a href="">Events</a></li>
+        <li class="menu--item"><a href="">Qui sommes nous</a></li>
+        <li class="menu--item"><a href="">Contact</a></li>
+        <li class="menu--item">
+          <a class="btn btn--primary" href="/pages/products.html">Commander</a>
+        </li>
+      </ul>
+    </nav>
+    <button class="btn btn--menu"></button>
+  </header>
+  <main class="color-1">
+    <section class="products">
+      <div class="product">
+        <h2 class="product--title">Fico</h2>
+        <img src="../assets/images/products/figo.svg" alt="" class="product--img">
+        <ul class="product--content--list">
+          <li class="product--item">1 confiture samore</li>
+          <li class="product--item">1 confiture de figue</li>
+          <li class="product--item">1 chutney de prunes</li>
+          <li class="product--item">2 passata</li>
+          <li class="product--item">1 sirop de baies de sureau</li>
+        </ul>
+        <div class="product--footer">
+          <p class="product--price">25 €</p>
+          <button class="btn btn--primary"><span>Order</span> <i class="cart"></i></button>
+        </div>
+      </div>
+      <div class="product">
+        <h2 class="product--title">Oro di Puglia</h2>
+        <img src="../assets/images/products/oro_di_puglia.svg" alt="" class="product--img">
+        <ul class="product--content--list">
+          <li class="product--item">1 bouteille d'huile d'olive</li>
+          <li class="product--item">1 ketchup</li>
+          <li class="product--item">2 passata</li>
+          <li class="product--item">1 confiture de figue</li>
+          <li class="product--item">1 chutney de prunes</li>
+          <li class="product--item">1 chutney cerise</li>
+        </ul>
+        <div class="product--footer">
+          <p class="product--price">40 €</p>
+          <button class="btn bg--blue"><span>Order</span> <i class="cart"></i></button>
+        </div>
+
+      </div>
+      <div class="product">
+        <h2 class="product--title">Grande Belleza</h2>
+        <img src="../assets/images/products/grande_belezza.svg" alt="" class="product--img">
+        <ul class="product--content--list">
+          <li class="product--item">1 bouteille d'huile d'olive</li>
+          <li class="product--item">3 passata 1 ketchup</li>
+          <li class="product--item">1 confiture de figue</li>
+          <li class="product--item">1 confiture d'amarene</li>
+          <li class="product--item">1 confiture samore</li>
+          <li class="product--item">1 confiture de sambuco</li>
+          <li class="product--item">1 bouteille d'amaro</li>
+        </ul>
+        <div class="product--footer">
+          <p class="product--price">60 €</p>
+          <button class="btn bg--yellow"><span>Order</span><i class="cart"></i></button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+  <footer>
+    <div class="logos">
+      <ul>
+        <li>
+          <img src="../assets/images/casalina_logo.svg" alt="casalina_logo" />
+        </li>
+        <li><img src="../assets/images/bsr_logo.svg" alt="bsr_logo" /></li>
+      </ul>
+    </div>
+    <div class="donnation">
+      <h3>Nous faire un don</h3>
+      <p>BANK ACCOUNT</p>
+    </div>
+    <div class="social-media">
+      <h3>Social Media</h3>
+      <ul>
+        <li>
+          <a href=""><img src="../assets/images/fb_logo.svg" alt="facebook logo" /></a>
+        </li>
+        <li>
+          <a href="">
+            <img src="../assets/images/insta_logo.svg" alt="instagram logo" /></a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    const color_container = document.querySelector('.color--container');
+    const color1 = document.querySelector('.color-1');
+    const maiin = document.querySelector('main');
+    color_container.addEventListener('click', (e) => {
+      const newColor = e.target.classList[e.target.classList.length - 1];
+      if (newColor.includes('color-')) {
+        maiin.className = newColor;
+      }
+    });
+  </script>
+</body>
+
+</html>
