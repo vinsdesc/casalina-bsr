@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../style.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul class="menu">
+        <li class="menu--item menu--logo"> <a href="/index.html"><img src="../assets/images/casalina_logo.svg"
+              class="logo--img" alt="casalina_logo" /></a>
+        </li>
+        <li class="menu--item menu--logo">
+          <a href="/index.html"> <img src="../assets/images/bsr_logo.svg" class="logo--img" alt="bsr_logo" /></a>
+        </li>
+        <li class="menu--item"><a href="">Events</a></li>
+        <li class="menu--item menu--item--dropdown"><a>Qui sommes nous</a>
+          <ul class="dropdown--menu">
+            <li class="dropdown--item"><a href="./bsr.html">BSR</a></li>
+            <li class="dropdown--item"><a href="./casalina.html">Casalina</a></li>
+          </ul>
+        </li>
+        <li class="menu--item"><a href="contact.html">Contact</a></li>
+        <li class="menu--item">
+          <!-- <a class="btn btn--primary" href="./products.html">Commander</a> -->
+        </li>
+      </ul>
+      <button class="btn btn--menu icon--hamburger">
+      </button>
+      <ul class="menu--xs">
+        <li class="menu--item--xs"><a href="./events.html">Events</a></li>
+        <li class="menu--item--xs"><a class="menu--item--dropdown--xs">Qui sommes
+            nous ?</a>
+          <ul class="dropdown--menu--xs">
+            <li class="dropdown--item--xs"><a href="./bsr.html">BSR</a></li>
+            <li class="dropdown--item--xs"><a href="./casalina.html">Casalina</a></li>
+          </ul>
+        </li>
+        <li class="menu--item--xs"><a href="./contact.html">Contact</a></li>
+        <li class="menu--item--xs cta"><a href="./products.html">Commander</a></li>
+      </ul>
+    </nav>
+
+
+  </header>
+  <main class="color-1">
+    <section class="bsr">
+      <h1>BSR</h1>
+      <div class="bsr--content">
+        <img src="../assets/images/bsr/bsr_team.svg" alt="">
+        <div class="bsr--content-text">
+          <p>Le collectif Building Social Resilience est composé d’un noyau d’une vingtaine de bénévoles venant de
+            Bruxelles
+            et d’ailleurs.
+            Il est soutenu au quotidien par un nombre infini de belles personnes réunies par des valeurs communes telles
+            que
+            la solidarité et l’écologie, et préoccupées par les crises migratoires et environnementales que nous
+            traversons.
+          </p>
+          <p>
+            Le BSR cherche à sensibiliser sur ces problématiques contemporaines et à mettre en place des projets pour
+            défendre le droit et l’accueil des réfugiés, l’agriculture naturelle et la souveraineté alimentaire tout en
+            valorisant les échanges culturels et les espaces ruraux.
+          </p>
+        </div>
+      </div>
+    </section>
+    <h1>EVENTS</h1>
+    <section class="events">
+      <section class="event event--2023">
+        <img src="../assets/images/bsr/event_1.svg" alt="">
+        <h2>Fiestalina</h2>
+        <h2>Christmast Market</h2>
+      </section>
+      <section class="event"><img src="../assets/images/bsr/event_2.svg" alt="">
+        <h2>Fiestalina</h2>
+        <h2>Christmast Market</h2>
+      </section>
+      <section class="event"><img src="../assets/images/bsr/event_1.svg" alt="">
+        <h2>Fiestalina</h2>
+        <h2>Christmast Market</h2>
+      </section>
+
+      <section class="event  event--2022">
+        <img src="../assets/images/bsr/event_1.svg" alt="">
+        <h2>Fiestalina</h2>
+        <h2>Christmast Market</h2>
+      </section>
+      <section class="event"><img src="../assets/images/bsr/event_2.svg" alt="">
+        <h2>Fiestalina</h2>
+        <h2>Christmast Market</h2>
+      </section>
+      <section class="event"><img src="../assets/images/bsr/event_1.svg" alt="">
+        <h2>Fiestalina</h2>
+        <h2>Christmast Market</h2>
+      </section>
+    </section>
+  </main>
+  <footer>
+    <div class="logos">
+      <ul>
+        <li>
+          <img src="../assets/images/casalina_logo.svg" alt="casalina_logo" />
+        </li>
+        <li><img src="../assets/images/bsr_logo.svg" alt="bsr_logo" /></li>
+      </ul>
+    </div>
+    <div class="donnation">
+      <h3>Nous faire un don</h3>
+      <p>BANK ACCOUNT</p>
+    </div>
+    <div class="social-media">
+      <h3>Social Media</h3>
+      <ul>
+        <li>
+          <a href=""><img src="../assets/images/fb_logo.svg" alt="facebook logo" /></a>
+        </li>
+        <li>
+          <a href="">
+            <img src="../assets/images/insta_logo.svg" alt="instagram logo" /></a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+
+    const isElementDisplayed = (ele) => {
+      return window.getComputedStyle(ele).display !== 'none';
+    }
+
+
+
+    // menu desktop
+    const menuItemDropdown = document.querySelector('.menu--item--dropdown');
+    const dropdownMenu = document.querySelector('.dropdown--menu');
+    menuItemDropdown.addEventListener('click', (e) => {
+      dropdownMenu.style.display = 'block';
+    });
+
+    // menu phone
+    const btnMenu = document.querySelector('.btn--menu');
+    const menuXs = document.querySelector('.menu--xs');
+    const menuItemDropdownXs = document.querySelector('.menu--item--dropdown--xs');
+    const dropdownMenuXS = document.querySelector('.dropdown--menu--xs');
+
+    const HAMBURGER = 'icon--hamburger';
+    const CLOSE = 'icon--close';
+    btnMenu.addEventListener('click', (e) => {
+      if (e.target.classList.contains(HAMBURGER)) {
+        e.target.classList.remove(HAMBURGER);
+        e.target.classList.add(CLOSE);
+        menuXs.style.display = 'block';
+      } else {
+        e.target.classList.add(HAMBURGER);
+        e.target.classList.remove(CLOSE);
+        menuXs.style.display = 'none';
+      }
+    });
+
+    menuItemDropdownXs.addEventListener('click', (e) => {
+      if (!isElementDisplayed(dropdownMenuXS)) {
+        dropdownMenuXS.style.display = 'block';
+      } else {
+        dropdownMenuXS.style.display = 'none';
+      }
+    });
+
+
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.menu--item--dropdown')) return
+      dropdownMenu.style.display = 'none';
+    })
+
+
+    // switch color 
+    // const color_container = document.querySelector('.color--container');
+    // const color1 = document.querySelector('.color-1');
+    // const maiin = document.querySelector('main');
+    // color_container.addEventListener('click', (e) => {
+    //   const newColor = e.target.classList[e.target.classList.length - 1];
+    //   if (newColor.includes('color-')) {
+    //     maiin.className = newColor;
+    //   }
+    // });
+  </script>
+</body>
+
+</html>

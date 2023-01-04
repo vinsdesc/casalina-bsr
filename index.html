@@ -26,7 +26,7 @@
             <li class="dropdown--item"><a href="/pages/casalina.html">Casalina</a></li>
           </ul>
         </li>
-        <li class="menu--item"><a href="">Contact</a></li>
+        <li class="menu--item"><a href="./pages/contact.html">Contact</a></li>
         <li class="menu--item">
           <!-- <a class="btn btn--primary" href="/pages/products.html">Commander</a> -->
         </li>
@@ -135,6 +135,8 @@
       return window.getComputedStyle(ele).display !== 'none';
     }
 
+
+
     // menu desktop
     const menuItemDropdown = document.querySelector('.menu--item--dropdown');
     const dropdownMenu = document.querySelector('.dropdown--menu');
@@ -170,6 +172,11 @@
       }
     });
 
+
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.menu--item--dropdown')) return
+      dropdownMenu.style.display = 'none';
+    })
 
 
     // switch color 
