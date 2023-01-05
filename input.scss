@@ -944,6 +944,42 @@ label {
   }
 }
 
+.campagna-e-vita {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+
+  p:first-child {
+    padding-top: 0;
+  }
+  @include respond-to("xs") {
+    grid-template-columns: 1fr;
+    figure:last-child {
+      display: flex;
+      flex-direction: column;
+      img {
+        order: 2;
+      }
+    }
+  }
+}
+
+.el-caporalato {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 2rem;
+  @include respond-to("xs") {
+    grid-template-columns: 1fr;
+    .reverse-order-xs {
+      display: flex;
+      flex-direction: column;
+      img {
+        order: 2;
+      }
+    }
+  }
+}
+
 .el-caporalato,
 .campagna-e-vita {
   img {

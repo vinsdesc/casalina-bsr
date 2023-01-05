@@ -1086,6 +1086,45 @@ label {
   }
 }
 
+.campagna-e-vita {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+.campagna-e-vita p:first-child {
+  padding-top: 0;
+}
+@media (max-width: 576px) {
+  .campagna-e-vita {
+    grid-template-columns: 1fr;
+  }
+  .campagna-e-vita figure:last-child {
+    display: flex;
+    flex-direction: column;
+  }
+  .campagna-e-vita figure:last-child img {
+    order: 2;
+  }
+}
+
+.el-caporalato {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 2rem;
+}
+@media (max-width: 576px) {
+  .el-caporalato {
+    grid-template-columns: 1fr;
+  }
+  .el-caporalato .reverse-order-xs {
+    display: flex;
+    flex-direction: column;
+  }
+  .el-caporalato .reverse-order-xs img {
+    order: 2;
+  }
+}
+
 @media (max-width: 576px) {
   .el-caporalato img,
   .campagna-e-vita img {
