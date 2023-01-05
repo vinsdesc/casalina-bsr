@@ -147,15 +147,9 @@ $yellow: rgba(245, 213, 20, 1);
     --bs-breakpoint-lg: 992px;
     --bs-breakpoint-xl: 1200px;
     --bs-breakpoint-xxl: 1400px;
-}
-
-body {
-  margin: 0 auto; 
-  max-width: 1280px;
-  color: black;
+    color: black;
   font-family: 'Kohinoor Bangla';
   font-style: normal;
-  font-size: 16px;
   line-height: 157.5%;
   @include respond-to('xs') {
     padding: 0px;
@@ -163,6 +157,12 @@ body {
     font-size: 14px;
     line-height: 155%;
   }
+}
+
+body {
+  margin: 0 auto; 
+  max-width: 1280px;
+
   // @include respond-to('xl') {
   //   padding: 10px 80px;
   // }
@@ -342,14 +342,15 @@ h1 {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
   border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   @include shadow();
-
+  @include respond-to('xs') {
+    font-size: 1.1rem;
+  }
   // @include respond-to('xl') {
   //   font-size: 30px;
   // }
 }
 .btn--primary {
   background-color: $primary;
-  padding: 10px 20px;
 }
 
 .btn--menu {
@@ -802,9 +803,21 @@ p {
   margin: 3rem;
   background: white;
   position: relative;
-  &:first-child {
-    margin-bottom: 4rem;
+  &:last-child {
+    margin-top: 5rem;
   }
+  @include respond-to('xs') {
+    margin: 1rem;
+    padding: 1rem;
+    padding-top: 2rem;
+    &:last-child {
+      margin-top: 3rem;
+    }
+    img {
+      margin: 0 auto;
+    }
+  }
+
 }
 .border-card {
   position: absolute;
@@ -814,6 +827,9 @@ p {
   bottom: calc(100% - 3rem);
   border-radius: 5px 5px 0 0;
   background: #A3D3BC;
+  @include respond-to('xs') {
+    bottom: calc(100% - 2rem);
+  }
 }
 .contact--form {
   display: grid;
@@ -827,35 +843,59 @@ p {
   button {
     grid-column-start: 2;
   }
+  @include respond-to('xs') {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 
 .contact--address, .contact--phone {
   padding: .4em 0;
-}
-.contact--address::before {
-  content: url(./assets//images/icons/home.svg);
-  width: 20px;
-  height: 20px;
-  position: relative;
-  top: 3px;
-  margin-right: .7em;
-  vertical-align: middle;
-}
-.contact--phone::before {
-  content: url(./assets//images/icons/phone.svg);
-  width: 20px;
-  height: 20px;
-  margin-right: .7em;
-  vertical-align: middle;
-  
+  @include respond-to('xs') {
+    padding-left: 1em;
+    margin-left: .8em;
+    position: relative;
+  }
 }
 
-.grid-4-col {
+.contact--phone::before, .contact--address::before {
+  margin-right: .7em;
+  vertical-align: middle;
+  position: relative;
+  @include respond-to('xs') {
+    position: absolute;
+    top: 7px;
+    left: -.2em;
+    margin-right: 0;
+  }
+}
+
+.contact--address::before {
+  content: url(./assets//images/icons/home.svg);
+  top: 1px;
+  @include respond-to('xs') {
+    content: url(./assets/images/icons/home_sm.svg);
+    top: 4px;
+  }
+}
+
+.contact--phone::before {
+  content: url(./assets//images/icons/phone.svg);
+  @include respond-to('xs') {
+    content: url(./assets/images/icons/phone_sm.svg);
+  }
+}
+
+.contact--info {
   display: grid;
   grid-template-columns: 100px auto 100px auto;
   gap: 20px;
   align-items: center;
+  @include respond-to('xs') {
+    grid-template-columns: auto;
+   
+  }
 }
 
 input, textarea {
@@ -880,5 +920,10 @@ label {
   display: inline-block;
   margin: 0.5rem 0;
   width: 100%;
+  font-size: 1.1em;
+  font-weight: 500;
+  @include respond-to('xs') {
+    margin: .3rem 0;
+  }
 }
 

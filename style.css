@@ -246,24 +246,23 @@ html {
   --bs-breakpoint-lg: 992px;
   --bs-breakpoint-xl: 1200px;
   --bs-breakpoint-xxl: 1400px;
-}
-
-body {
-  margin: 0 auto;
-  max-width: 1280px;
   color: black;
   font-family: "Kohinoor Bangla";
   font-style: normal;
-  font-size: 16px;
   line-height: 157.5%;
 }
 @media (max-width: 576px) {
-  body {
+  :root {
     padding: 0px;
     font-weight: 400;
     font-size: 14px;
     line-height: 155%;
   }
+}
+
+body {
+  margin: 0 auto;
+  max-width: 1280px;
 }
 
 @media (max-width: 576px) {
@@ -424,10 +423,14 @@ h1 {
   border: 2px solid rgb(0, 0, 0);
   border-radius: 10px;
 }
+@media (max-width: 576px) {
+  .btn {
+    font-size: 1.1rem;
+  }
+}
 
 .btn--primary {
   background-color: rgb(163, 211, 188);
-  padding: 10px 20px;
 }
 
 .btn--menu {
@@ -850,8 +853,21 @@ p {
   background: white;
   position: relative;
 }
-.contact--card:first-child {
-  margin-bottom: 4rem;
+.contact--card:last-child {
+  margin-top: 5rem;
+}
+@media (max-width: 576px) {
+  .contact--card {
+    margin: 1rem;
+    padding: 1rem;
+    padding-top: 2rem;
+  }
+  .contact--card:last-child {
+    margin-top: 3rem;
+  }
+  .contact--card img {
+    margin: 0 auto;
+  }
 }
 
 .border-card {
@@ -862,6 +878,11 @@ p {
   bottom: calc(100% - 3rem);
   border-radius: 5px 5px 0 0;
   background: #A3D3BC;
+}
+@media (max-width: 576px) {
+  .border-card {
+    bottom: calc(100% - 2rem);
+  }
 }
 
 .contact--form {
@@ -876,34 +897,68 @@ p {
 .contact--form button {
   grid-column-start: 2;
 }
+@media (max-width: 576px) {
+  .contact--form {
+    display: flex;
+    flex-direction: column;
+  }
+}
 
 .contact--address, .contact--phone {
   padding: 0.4em 0;
 }
+@media (max-width: 576px) {
+  .contact--address, .contact--phone {
+    padding-left: 1em;
+    margin-left: 0.8em;
+    position: relative;
+  }
+}
+
+.contact--phone::before, .contact--address::before {
+  margin-right: 0.7em;
+  vertical-align: middle;
+  position: relative;
+}
+@media (max-width: 576px) {
+  .contact--phone::before, .contact--address::before {
+    position: absolute;
+    top: 7px;
+    left: -0.2em;
+    margin-right: 0;
+  }
+}
 
 .contact--address::before {
   content: url(./assets//images/icons/home.svg);
-  width: 20px;
-  height: 20px;
-  position: relative;
-  top: 3px;
-  margin-right: 0.7em;
-  vertical-align: middle;
+  top: 1px;
+}
+@media (max-width: 576px) {
+  .contact--address::before {
+    content: url(./assets/images/icons/home_sm.svg);
+    top: 4px;
+  }
 }
 
 .contact--phone::before {
   content: url(./assets//images/icons/phone.svg);
-  width: 20px;
-  height: 20px;
-  margin-right: 0.7em;
-  vertical-align: middle;
+}
+@media (max-width: 576px) {
+  .contact--phone::before {
+    content: url(./assets/images/icons/phone_sm.svg);
+  }
 }
 
-.grid-4-col {
+.contact--info {
   display: grid;
   grid-template-columns: 100px auto 100px auto;
   gap: 20px;
   align-items: center;
+}
+@media (max-width: 576px) {
+  .contact--info {
+    grid-template-columns: auto;
+  }
 }
 
 input, textarea {
@@ -928,6 +983,13 @@ label {
   display: inline-block;
   margin: 0.5rem 0;
   width: 100%;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+@media (max-width: 576px) {
+  label {
+    margin: 0.3rem 0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
