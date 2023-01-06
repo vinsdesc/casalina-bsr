@@ -318,10 +318,10 @@ header .menu {
   gap: 10px;
 }
 header .menu li:first-child {
-  margin-right: -4rem;
+  margin-right: -1rem;
 }
 header .menu li:nth-child(2) {
-  margin-right: 18rem;
+  margin-right: 10rem;
 }
 @media (max-width: 576px) {
   header {
@@ -373,11 +373,13 @@ header .menu li:nth-child(2) {
 .dropdown--menu {
   display: none;
   position: absolute;
+  left: 1em;
+  top: 1.7em;
   z-index: 100;
-  top: 35px;
   border: 1px inset black;
   width: 100%;
   font-weight: normal;
+  font-family: kohinoor-medium;
   border: 0.5px solid black;
   border-radius: 5px;
   background: white;
@@ -387,7 +389,7 @@ header .menu li:nth-child(2) {
   padding: 0.5em;
 }
 .dropdown--menu .dropdown--item:hover {
-  background: whitesmoke;
+  background: rgba(163, 211, 188, 0.4705882353);
   width: 100%;
   border-radius: 5px;
 }

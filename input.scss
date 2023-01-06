@@ -201,10 +201,10 @@ header {
     height: 100%;
     gap: 10px;
     li:first-child {
-      margin-right: -4rem;
+      margin-right: -1rem;
     }
     li:nth-child(2) {
-      margin-right: 18rem;
+      margin-right: 10rem;
     }
   }
   // @include respond-to('xl') {
@@ -259,12 +259,13 @@ header {
 .dropdown--menu {
   display: none;
   position: absolute;
+  left: 1em;
+  top: 1.7em;
   z-index: 100;
-  top: 35px;
   border: 1px inset black;
   width: 100%;
   font-weight: normal;
-  // font-family: kohinoor-medium;
+  font-family: kohinoor-medium;
   border: 0.5px solid black;
   border-radius: 5px;
   background: white;
@@ -273,7 +274,7 @@ header {
     cursor: pointer;
     padding: 0.5em;
     &:hover {
-      background: whitesmoke;
+      background: #a3d3bc78;
       width: 100%;
       border-radius: 5px;
     }
