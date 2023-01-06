@@ -30,6 +30,15 @@
   font-family: tt-norm-semi-bold;
   src: url(./assets/fonts/TTNorms-Regular.otf);
 }
+.only-for-mobile {
+  display: none;
+}
+@media (max-width: 576px) {
+  .only-for-mobile {
+    display: inline-block !important;
+  }
+}
+
 /***
     The new CSS reset - version 1.7.3 (last updated 7.8.2022)
     GitHub page: https://github.com/elad2412/the-new-css-reset
@@ -344,15 +353,21 @@ header .menu li:nth-child(2) {
   cursor: pointer;
 }
 .menu--item--dropdown::after {
-  display: inline-block;
-  margin-left: 0.4em;
-  vertical-align: 0.1em;
   content: "";
   width: 0;
   height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-top: 7px solid #000000;
+  border-top: 7px solid #000;
+  border-left: 7px solid rgba(0, 0, 0, 0);
+  border-right: 7px solid rgba(0, 0, 0, 0);
+  margin-left: 0.4em;
+  display: inline;
+  position: absolute;
+  top: 9px;
+}
+.menu--item--dropdown a {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
 }
 
 .dropdown--menu {
@@ -545,8 +560,10 @@ body::-webkit-scrollbar-thumb {
   background: rgb(245, 213, 20);
 }
 
-.hero {
-  padding: 3rem 0;
+@media (max-width: 576px) {
+  .hero h1 {
+    padding-top: 0;
+  }
 }
 .hero .hero--picture {
   width: 100%;
@@ -570,6 +587,9 @@ body::-webkit-scrollbar-thumb {
     height: 62px;
     background: none;
   }
+  .hero figcaption h1 {
+    display: none;
+  }
 }
 .hero figcaption h1 {
   font-style: normal;
@@ -581,7 +601,7 @@ body::-webkit-scrollbar-thumb {
   padding-left: 20px;
   margin-top: -1.3rem;
 }
-.hero figcaption button {
+.hero figcaption .btn--primary {
   display: none;
   position: absolute;
   right: 20px;
@@ -589,20 +609,11 @@ body::-webkit-scrollbar-thumb {
   font-size: 30px;
 }
 @media (max-width: 576px) {
-  .hero figcaption button {
+  .hero figcaption .btn--primary {
     display: block;
     font-size: 16px;
     right: 16px;
     bottom: 8px;
-  }
-}
-@media (max-width: 576px) {
-  .hero {
-    margin: 0;
-    padding-top: 32px;
-  }
-  .hero h1 {
-    display: none;
   }
 }
 

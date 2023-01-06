@@ -238,15 +238,21 @@ header {
     cursor: pointer;
   }
   &::after {
-    display: inline-block;
-    margin-left: 0.4em;
-    vertical-align: 0.1em;
     content: "";
     width: 0;
     height: 0;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-top: 7px solid #000000;
+    border-top: 7px solid #000;
+    border-left: 7px solid #0000;
+    border-right: 7px solid #0000;
+    margin-left: 0.4em;
+    display: inline;
+    position: absolute;
+    top: 9px;
+  }
+  a {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
   }
 }
 
@@ -448,7 +454,11 @@ body::-webkit-scrollbar-thumb {
 // ********* HOME
 
 .hero {
-  padding: 3rem 0;
+  @include respond-to("xs") {
+    h1 {
+      padding-top: 0;
+    }
+  }
   .hero--picture {
     width: 100%;
   }
@@ -468,6 +478,9 @@ body::-webkit-scrollbar-thumb {
       top: calc(100% - 66px);
       height: 62px;
       background: none;
+      h1 {
+        display: none;
+      }
     }
     h1 {
       font-style: normal;
@@ -479,7 +492,7 @@ body::-webkit-scrollbar-thumb {
       padding-left: 20px;
       margin-top: -1.3rem;
     }
-    button {
+    .btn--primary {
       display: none;
       position: absolute;
       right: 20px;
@@ -491,13 +504,6 @@ body::-webkit-scrollbar-thumb {
         right: 16px;
         bottom: 8px;
       }
-    }
-  }
-  @include respond-to("xs") {
-    margin: 0;
-    padding-top: 32px;
-    h1 {
-      display: none;
     }
   }
 }

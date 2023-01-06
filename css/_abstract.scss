@@ -1,24 +1,24 @@
 $breakpoints: (
-  'xs': (
+  "xs": (
     max-width: 576px,
   ),
-  'small': (
+  "small": (
     min-width: 767px,
   ),
-  'medium': (
+  "medium": (
     min-width: 992px,
   ),
-  'large': (
+  "large": (
     min-width: 1200px,
   ),
-  'xl': (
+  "xl": (
     min-width: 1400px,
-  )
+  ),
 ) !default;
 
 $px-unit: (
-  'desktop': 10px,
-  'mobile': 8px,
+  "desktop": 10px,
+  "mobile": 8px,
 );
 
 @mixin respond-to($breakpoint) {
@@ -34,5 +34,12 @@ $px-unit: (
   @else {
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
         + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+.only-for-mobile {
+  display: none;
+  @include respond-to("xs") {
+    display: inline-block !important;
   }
 }

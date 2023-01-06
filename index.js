@@ -4,6 +4,14 @@ const isElementDisplayed = (ele) => {
 }
 
 
+document.addEventListener('click', (e) => {
+  console.log(e.target);
+  console.log(e.target.closest('.menu--item--dropdown'));
+  if (e.target.closest('.menu--item--dropdown')) return
+  dropdownMenu.style.display = 'none';
+})
+
+
 
 // menu desktop
 const menuItemDropdown = document.querySelector('.menu--item--dropdown');
@@ -41,10 +49,7 @@ menuItemDropdownXs.addEventListener('click', (e) => {
 });
 
 
-document.addEventListener('click', (e) => {
-  if (e.target.closest('.menu--item--dropdown')) return
-  dropdownMenu.style.display = 'none';
-})
+
 
 
 // switch color 
