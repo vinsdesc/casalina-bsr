@@ -797,7 +797,6 @@ h1 {
   font-size: 50px;
   line-height: 157.5%;
   padding: 2.5rem 0;
-  /* or 79px */
   text-align: center;
 }
 @media (max-width: 576px) {
@@ -822,23 +821,27 @@ p {
 }
 
 .bsr--content {
-  display: flex;
-  padding: 1.5rem 3rem;
-}
-.bsr--content img {
-  order: 2;
-  flex: 1;
-  width: 50%;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
 }
 @media (max-width: 576px) {
   .bsr--content {
-    display: block;
+    grid-template-columns: 1fr;
   }
 }
 
-.events {
-  display: inline-grid;
-  grid-template-columns: repeat(3, minmax(200px, 1fr));
+.events--flex {
+  display: flex;
+}
+
+.year {
+  display: flex;
+  justify-content: space-between;
+}
+
+.event--2023 {
+  grid-row-start: 3;
+  border: 10px solid goldenrod;
 }
 
 .event {
@@ -847,44 +850,72 @@ p {
   border-radius: 10px;
   margin: 2em 0.3em;
   position: relative;
+  flex: 1 0 100%;
+  background-color: rgb(233, 233, 233);
+}
+.event h2 {
+  padding: 0.1em 0.7em;
 }
 .event img {
-  width: fit-content;
-  border-radius: 10px;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+@media (max-width: 576px) {
+  .event {
+    margin: 1em 0.3em;
+  }
 }
 
-.event--2023::after,
-.event::before {
+.carousel::before,
+.carousel::after,
+.carousel__prev,
+.carousel__next {
   position: absolute;
-  font-family: "TT Norms";
-  font-style: normal;
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 21px;
-  top: -30px;
+  top: 0;
+  margin-top: 37.5%;
+  width: 4rem;
+  height: 4rem;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  font-size: 0;
+  outline: 0;
 }
 
-.event--2023::before {
-  content: "2023";
-  left: 0;
+.carousel::before,
+.carousel__prev {
+  left: -1rem;
 }
 
-.event--2023::after {
-  content: "A venir";
-  left: 100%;
-  width: 100px;
+.carousel::after,
+.carousel__next {
+  right: -1rem;
 }
 
-.event--2022::before {
-  content: "2022";
-  left: 0;
+.carousel::before,
+.carousel::after {
+  content: " e";
+  z-index: 1222;
+  background-color: #333;
+  background-size: 1.5rem 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: #fff;
+  font-size: 2.5rem;
+  line-height: 4rem;
+  text-align: center;
+  pointer-events: none;
 }
 
-.event--2022::after {
-  content: "A venir";
+.carousel::before {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,50 80,100 80,0' fill='%23fff'/%3E%3C/svg%3E");
+}
+
+.carousel::after {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
+}
+
+.line-through {
   text-decoration: line-through;
-  left: calc(100vw - 100px);
-  width: 100px;
 }
 
 .contact--card {
