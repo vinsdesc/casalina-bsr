@@ -460,8 +460,13 @@ body::-webkit-scrollbar-thumb {
   //     padding-top: 0;
   //   }
   // }
+ 
   .hero--picture {
+    background-color: #000;
+    @include big-shadow();
     width: 100%;
+    margin: 2.5rem 0;
+
   }
   figure {
     position: relative;
@@ -472,11 +477,11 @@ body::-webkit-scrollbar-thumb {
     width: 100%;
     height: 100px;
     left: 0px;
-    top: calc(100% - 110px);
+    top: calc(100% - 149px);
     background: rgba(16, 16, 16, 0.2);
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
     @include respond-to("xs") {
-      top: calc(100% - 66px);
+      top: calc(100% - 110px);
       height: 62px;
       background: none;
       h1 {
@@ -511,13 +516,13 @@ body::-webkit-scrollbar-thumb {
 
 .description {
   display: grid;
-  padding: 0 40px;
+  padding: 0 .3rem;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   font-size: 16px;
   line-height: 165%;
   font-family: kohinoor-medium;
-  margin-bottom: 40px;
+  margin-bottom: 1rem;
   font-size: 18px;
   @include respond-to("xs") {
     padding: 0 0px;
@@ -701,14 +706,19 @@ p {
 .bsr--content {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
-
+  gap: 3rem;
   @include respond-to("xs") {
     grid-template-columns: 1fr;
+    gap:0;
   }
 }
 
 .events--flex {
   display: flex;
+}
+
+.event__snapper {
+  cursor: pointer;
 }
 
 .year {
@@ -766,11 +776,10 @@ p {
 
 .carousel::before,
 .carousel::after {
-  content: " e";
+  content: "";
   z-index: 1222;
   background-color: #333;
   background-size: 1.5rem 1.5rem;
-
   background-repeat: no-repeat;
   background-position: center center;
   color: #fff;
@@ -999,10 +1008,17 @@ label {
   }
 }
 
+.farm--container,.campagna-e-vita,.el-caporalato {
+  img {
+    @include shadow();
+    background-color: #000;
+  }
+}
+
 .casalina--container {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
-  gap: 2rem;
+  gap: 3rem;
   .casalina--text {
     margin-top: 1rem;
   }
@@ -1112,3 +1128,161 @@ label {
     }
   }
 }
+
+
+
+
+
+
+* {
+  box-sizing: border-box;
+  scrollbar-color: transparent transparent; /* thumb and track color */
+  scrollbar-width: 0px;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: none;
+}
+
+* {
+  -ms-overflow-style: none;
+}
+
+ol, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel {
+  // position: relative;
+  // padding-top: 75%;
+  // perspective: 100px;
+  @include big-shadow();
+}
+
+.carousel__viewport {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 5px;
+  display: flex;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel__slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  background-color: #f99;
+  h2 {
+    padding-left: .5em;
+  }
+  h2:nth-child(2n) {
+  font-weight: 700;
+  }
+  h2:nth-child(odd) {
+   color: $gray;
+    }
+  img {
+    position: relative;
+    top: -2px;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+.carousel__slide:nth-child(even) {
+  background-color: #99f;
+}
+
+.carousel__slide:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%,-40%,70px);
+  color: #fff;
+  font-size: 2em;
+}
+
+.carousel__snapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: center;
+}
+
+
+// @media (prefers-reduced-motion: reduce) {
+//   .carousel__snapper {
+//     animation-name: none;
+//   }
+// }
+
+
+// .carousel:hover .carousel__snapper,
+// .carousel:focus-within .carousel__snapper {
+//   animation-name: none;
+// }
+
+// .carousel::before,
+// .carousel::after,
+.carousel__prev,
+.carousel__next {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  margin-top: 37.5%;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  font-size: 0;
+  outline: 0;
+}
+
+.carousel::before,
+.carousel__prev {
+  left: -1rem;
+}
+
+.carousel::after,
+.carousel__next {
+  right: -1rem;
+}
+
+// .carousel::before,
+// .carousel::after {
+//   content: '';
+//   z-index: 5;
+//   background-color:#ced0cf;
+//   background-size: 1.5rem 1.5rem;
+//   background-repeat: no-repeat;
+//   background-position: center center;
+//   font-size: 2.5rem;
+//   line-height: 4rem;
+//   text-align: center;
+//   pointer-events: none;
+// }
+
+// .carousel::before {
+//   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,50 80,100 80,0' fill='%23fff'/%3E%3C/svg%3E");
+// }
+
+// .carousel::after {
+//   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
+// }

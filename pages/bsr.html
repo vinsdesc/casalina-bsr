@@ -72,46 +72,46 @@
         </div>
       </div>
     </section>
-    <h1>EVENTS</h1>
+    <h1 id="events">EVENTS</h1>
     <section class="events">
       <div class="year">
         <h2>2023</h2>
         <h2>A venir</h2>
       </div>
-      <section class="events--flex">
-        <section class="event event--2023">
-          <img src="../assets/images/bsr/event_1.svg" alt="">
-          <h2>DDDD</h2>
-          <h2>Christmast Market</h2>
-        </section>
-        <section class="event"><img src="../assets/images/bsr/event_2.svg" alt="">
-          <h2>Fiestalina</h2>
-          <h2>Christmast Market</h2>
-        </section>
-        <section class="event"><img src="../assets/images/bsr/event_1.svg" alt="">
-          <h2>Fiestalina</h2>
-          <h2>Christmast Market</h2>
-        </section>
-      </section>
-
       <div class="year">
         <h2>2022</h2>
         <h2 class="line-through">A venir</h2>
       </div>
-      <section class="events--flex carousel">
-        <section class="event event--2023">
-          <img src="../assets/images/bsr/event_1.svg" alt="">
-          <h2>Fiestalina</h2>
-          <h2>Christmast Market</h2>
-        </section>
-        <section class="event"><img src="../assets/images/bsr/event_2.svg" alt="">
-          <h2>Fiestalina</h2>
-          <h2>Christmast Market</h2>
-        </section>
-        <section class="event"><img src="../assets/images/bsr/event_1.svg" alt="">
-          <h2>Fiestalina</h2>
-          <h2>Christmast Market</h2>
-        </section>
+
+
+      <section class="carousel" aria-label="Gallery">
+        <ol class="carousel__viewport">
+          <li id="carousel__slide1" tabindex="0" class="carousel__slide">
+            <img src="../assets/images/bsr/event_1.svg" alt="" width="100%">
+            <h2>Fiestalina</h2>
+            <h2>Christmast Market</h2>
+            <div class="carousel__snapper">
+              <a href="#carousel__slide3" class="carousel__prev">Go to last slide</a>
+              <a href="#carousel__slide2" class="carousel__next">Go to next slide</a>
+            </div>
+          </li>
+          <li id="carousel__slide2" tabindex="0" class="carousel__slide">
+            <img src="../assets/images/bsr/event_2.svg" alt="">
+            <h2>Fiestalina</h2>
+            <h2>Christmast Market</h2>
+            <div class="carousel__snapper"></div>
+            <a href="#carousel__slide1" class="carousel__prev">Go to previous slide</a>
+            <a href="#carousel__slide3" class="carousel__next">Go to next slide</a>
+          </li>
+          <li id="carousel__slide3" tabindex="0" class="carousel__slide">
+            <img src="../assets/images/bsr/event_2.svg" alt="">
+            <h2>Fiestalina</h2>
+            <h2>Christmast Market</h2>
+            <div class="carousel__snapper"></div>
+            <a href="#carousel__slide2" class="carousel__prev">Go to previous slide</a>
+            <a href="#carousel__slide1" class="carousel__next">Go to next slide</a>
+          </li>
+        </ol>
       </section>
 
 
